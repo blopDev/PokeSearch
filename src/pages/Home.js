@@ -1,4 +1,5 @@
 import * as React from "react";
+import Test from "../Options/Test";
 import {
   Box,
   FormControl,
@@ -35,6 +36,7 @@ export default function Home() {
           mt: 30,
         }}
       >
+        <Test />
         <TextField id="outlined-search" label="Search field" type="search" />
         <FormControl sx={{ ml: 2, minWidth: 100 }}>
           <InputLabel id="color-label"> Color </InputLabel>
