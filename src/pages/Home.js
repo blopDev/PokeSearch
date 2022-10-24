@@ -30,13 +30,14 @@ export default function Home() {
 
   return (
     <>
+      <Test />
+
       <Box
         sx={{
           mx: 90,
           mt: 30,
         }}
       >
-        <Test />
         <TextField id="outlined-search" label="Search field" type="search" />
         <FormControl sx={{ ml: 2, minWidth: 100 }}>
           <InputLabel id="color-label"> Color </InputLabel>

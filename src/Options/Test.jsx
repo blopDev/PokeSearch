@@ -1,6 +1,6 @@
 import { ApolloClient, ApolloProvider, from, HttpLink, InMemoryCache } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import GetAllPokemon from "../Components/GetAllPokemon";
+import { GetAllPokemon, GetColors, GetHeights, GetTypes, GetWeights} from "../Components/GetAllPokemon";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) 
@@ -15,7 +15,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const link = from([
   errorLink,
-  new HttpLink({ uri: "https://graphql-pokeapi.graphcdn.app" })
+  new HttpLink({ uri: "https://graphqlpokemon.favware.tech/v7" })
 ]);
 
 const client = new ApolloClient({
@@ -27,6 +27,10 @@ export default function Test() {
   return (
     <ApolloProvider client={client}>
       <GetAllPokemon />
+      <GetWeights />
+      <GetTypes />
+      <GetHeights />
+      <GetColors />
     </ApolloProvider>
   );
 }
