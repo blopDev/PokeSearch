@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import {GET_COLOR, GET_HEIGHT, GET_POKEMONS, GET_TYPES, GET_WEIGHT} from "../Graphql/Queries";
 
 
-
 export function GetAllPokemon() {
   const { error, loading, data } = useQuery(GET_POKEMONS);
 
@@ -11,6 +10,11 @@ export function GetAllPokemon() {
   if (error) return `Error! ${error.message}`;
 
   console.log('Response from server', data)
+  return (
+    <div>
+      {data.getAllPokemon.map(pokemon => <div>{pokemon.species}</div>)}
+      </div>
+  )
 }
 
 

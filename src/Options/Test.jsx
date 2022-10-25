@@ -1,6 +1,6 @@
 import { ApolloClient, ApolloProvider, from, HttpLink, InMemoryCache } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import { GetAllPokemon, GetColors, GetHeights, GetTypes, GetWeights} from "../Components/GetAllPokemon";
+import { GetAllPokemon, GetColors, GetHeights, GetTypes, GetWeights} from "../Components/PokemonInfo";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) 
