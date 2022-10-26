@@ -27,10 +27,10 @@ export default function Test() {
   return (
     <ApolloProvider client={client}>
       <GetAllPokemon />
-      <GetWeights />
+      {/* <GetWeights />
       <GetTypes />
       <GetHeights />
-      <GetColors />
+      <GetColors /> */}
     </ApolloProvider>
   );
 }

@@ -1,17 +1,19 @@
 import { gql } from "@apollo/client";
 
 export const GET_POKEMONS = gql`
-query GetAllPokemon($offset: Int, $take: Int) {
-  getAllPokemon(offset: $offset, take: $take) {
+query GetAllPokemon($take: Int) {
+  getAllPokemon(offset: 87, take: $take) {
     num
+    sprite
     species
+    key
   }
 }
 `;
 
 export const GET_WEIGHT = gql`
-query GetAllPokemon($offset: Int, $take: Int) {
-  getAllPokemon(offset: $offset, take: $take) {
+query GetAllPokemon($take: Int) {
+  getAllPokemon(offset: 87, take: $take) {
     num
     species
     weight
@@ -19,8 +21,8 @@ query GetAllPokemon($offset: Int, $take: Int) {
 }
 `;
 export const GET_HEIGHT = gql`
-query GetAllPokemon($offset: Int, $take: Int) {
-  getAllPokemon(offset: $offset, take: $take) {
+query GetAllPokemon($take: Int) {
+  getAllPokemon(offset: 87, take: $take) {
     num
     species
     height
@@ -28,8 +30,8 @@ query GetAllPokemon($offset: Int, $take: Int) {
 }
 `;
 export const GET_TYPES = gql`
-query GetItem($offset: Int, $take: Int) {
-  getAllPokemon(offset: $offset, take: $take) {
+query GetItem($take: Int) {
+  getAllPokemon(offset: 87, take: $take) {
     num
     species
     types {
@@ -40,8 +42,8 @@ query GetItem($offset: Int, $take: Int) {
 `;
 
 export const GET_COLOR = gql`
-query GetAllPokemon($offset: Int, $take: Int) {
-  getAllPokemon(offset: $offset, take: $take) {
+query GetAllPokemon($take: Int) {
+  getAllPokemon(offset: 87 take: $take) {
     num
     species
     color
