@@ -1,12 +1,12 @@
 import { gql } from "@apollo/client";
 
 export const GET_POKEMONS = gql`
-query GetAllPokemon($take: Int) {
-  getAllPokemon(offset: 87, take: $take) {
+query GetAllPokemon($getAllPokemonTakeFlavorTexts2: Int) {
+  getAllPokemon(offset: 87, take: 30, offsetFlavorTexts: 87, takeFlavorTexts: $getAllPokemonTakeFlavorTexts2) {
     num
-    sprite
     species
     key
+    sprite
   }
 }
 `;

@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import { AppBar, Box, Button, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import Pokemon from "./pages/Pokemon";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       </Box>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/" element={<Pokemon />} />
       </Routes>
     </>
   );
