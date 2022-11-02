@@ -3,7 +3,6 @@ import {
   GET_COLOR,
   GET_HEIGHT,
   GET_POKEMONS,
-  GET_POKEMON_NAME,
   GET_TYPES,
   GET_WEIGHT,
 } from "../Graphql/Queries";
@@ -17,11 +16,10 @@ import {
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { Link, useParams } from "react-router-dom";
-import { useEffect } from "react";
-let pokemonTarget;
+
 
 export function GetAllPokemon() {
-  const { pokemonName } = useParams();
+
 
   const { error, loading, data } = useQuery(GET_POKEMONS);
 
@@ -29,14 +27,7 @@ export function GetAllPokemon() {
   if (error) return `Error! ${error.message}`;
 
   console.log("Response from server", data);
-  
-  
 
-  let handClick = (e) => {
-    pokemonTarget =  e.target.textContent
-    console.log(pokemonTarget)
-    GetPokemonName(pokemonTarget)
-  }
 
   return (
     <>
@@ -56,7 +47,7 @@ export function GetAllPokemon() {
                 <TableCell>
                   <img src={pokemon.sprite} alt={pokemon.species} />
                 </TableCell>
-                <TableCell pokename={pokemon.species} onClick={handClick}>
+                <TableCell pokename={pokemon.species}>
                   <Link to={`pokemon/${pokemon.species}`}>
                     {pokemon.species}
                   </Link>
@@ -70,19 +61,7 @@ export function GetAllPokemon() {
   );
 }
 
-function GetPokemonName(pokemonTarget) {
 
- 
-    const { error, loading, data } = useQuery(GET_POKEMON_NAME,  {variables:  {pokemon: `${pokemonTarget}`}});
-
-    if (loading) return "Loading...";
-    if (error) return `Error! ${error.message}`;
-
-    console.log("Response from server", data.GetPokemon);
-  
-
-
-}
 
 export function GetTypes() {
   const { error, loading, data } = useQuery(GET_TYPES);

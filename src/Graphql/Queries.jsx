@@ -12,10 +12,14 @@ query GetAllPokemon($getAllPokemonTakeFlavorTexts2: Int) {
 `;
 
 export const GET_POKEMON_NAME = gql`
-query GetPokemon($getPokemonPokemon2: PokemonEnum!) {
-  getPokemon(pokemon: pikachu) {
+query GetPokemon($pokemon: PokemonEnum!, $getPokemonTakeFlavorTexts2: Int ) {
+  getPokemon(pokemon: $pokemon, takeFlavorTexts: $getPokemonTakeFlavorTexts2) {
     key
     num
+    species
+    flavorTexts {
+      flavor
+    }
   }
 }
 `;
