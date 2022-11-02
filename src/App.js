@@ -8,7 +8,6 @@ import Pokemon from "./pages/Pokemon";
 function App() {
   return (
     <>
-    
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -30,7 +29,8 @@ function App() {
       </Box>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Pokemon />} />
+        <Route path="pokemon" element={<Pokemon />} />
+        <Route path="pokemon/:pokemonName" element={<Pokemon />}/>
       </Routes>
     </>
   );

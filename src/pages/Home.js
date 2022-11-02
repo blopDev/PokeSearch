@@ -8,6 +8,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import { GetPokemonName } from "../Components/PokemonInfo";
 
 export default function Home() {
   const [color, setColor] = React.useState("");

@@ -2,11 +2,20 @@ import { gql } from "@apollo/client";
 
 export const GET_POKEMONS = gql`
 query GetAllPokemon($getAllPokemonTakeFlavorTexts2: Int) {
-  getAllPokemon(offset: 87, take: 30, offsetFlavorTexts: 87, takeFlavorTexts: $getAllPokemonTakeFlavorTexts2) {
+  getAllPokemon(offset: 87, take: 10, offsetFlavorTexts: 87, takeFlavorTexts: $getAllPokemonTakeFlavorTexts2) {
     num
     species
     key
     sprite
+  }
+}
+`;
+
+export const GET_POKEMON_NAME = gql`
+query GetPokemon($getPokemonPokemon2: PokemonEnum!) {
+  getPokemon(pokemon: pikachu) {
+    key
+    num
   }
 }
 `;
@@ -20,6 +29,7 @@ query GetAllPokemon($take: Int) {
   }
 }
 `;
+
 export const GET_HEIGHT = gql`
 query GetAllPokemon($take: Int) {
   getAllPokemon(offset: 87, take: $take) {
@@ -29,6 +39,7 @@ query GetAllPokemon($take: Int) {
   }
 }
 `;
+
 export const GET_TYPES = gql`
 query GetItem($take: Int) {
   getAllPokemon(offset: 87, take: $take) {
