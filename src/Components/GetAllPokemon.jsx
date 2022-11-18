@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import '../css/PokeInfo.css'
+import '../css/TableRow.css'
 
 export function GetAllPokemon(searchInput) {
   const { error, loading, data } = useQuery(GET_POKEMONS);

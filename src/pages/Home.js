@@ -1,13 +1,13 @@
 import * as React from "react";
-import Test from "../Options/Test";
+import RenderPokemon from "../Options/RenderPokemon";
+
 
 
 export default function Home() {
 
   return (
     <>
-      <Test />
-      
+      <RenderPokemon />   
     </>
   );
 }

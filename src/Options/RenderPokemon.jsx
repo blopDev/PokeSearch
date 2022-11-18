@@ -24,7 +24,7 @@ const client = new ApolloClient({
   link: link
 })
 
-export default function OutPutPokemon() {
+export default function RenderPokemon() {
   return (
     <ApolloProvider client={client}>
       <GetAllPokemon />
