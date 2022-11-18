@@ -1,11 +1,5 @@
 import { useQuery } from "@apollo/client";
-import {
-  GET_COLOR,
-  GET_HEIGHT,
-  GET_POKEMONS,
-  GET_TYPES,
-  GET_WEIGHT,
-} from "../Graphql/Queries";
+import { GET_POKEMONS } from "../Graphql/Queries";
 import {
   Table,
   TableBody,
@@ -15,19 +9,16 @@ import {
   TableRow,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import '../css/PokeInfo.css'
 
-
-export function GetAllPokemon() {
-
-
+export function GetAllPokemon(searchInput) {
   const { error, loading, data } = useQuery(GET_POKEMONS);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
   console.log("Response from server", data);
-
 
   return (
     <>
@@ -42,7 +33,7 @@ export function GetAllPokemon() {
           </TableHead>
           <TableBody>
             {data.getAllPokemon.map((pokemon) => (
-              <TableRow key={pokemon.key}>
+              <TableRow key={pokemon.key} className={searchInput === pokemon.species ? "active" : "inactive"}>
                 <TableCell>{pokemon.num}</TableCell>
                 <TableCell>
                   <img src={pokemon.sprite} alt={pokemon.species} />
@@ -61,40 +52,38 @@ export function GetAllPokemon() {
   );
 }
 
+// export function GetTypes() {
+//   const { error, loading, data } = useQuery(GET_TYPES);
 
+//   if (loading) return "Loading...";
+//   if (error) return `Error! ${error.message}`;
 
-export function GetTypes() {
-  const { error, loading, data } = useQuery(GET_TYPES);
+//   console.log("Response from server", data);
+// }
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+// export function GetColors() {
+//   const { error, loading, data } = useQuery(GET_COLOR);
 
-  console.log("Response from server", data);
-}
+//   if (loading) return "Loading...";
+//   if (error) return `Error! ${error.message}`;
 
-export function GetColors() {
-  const { error, loading, data } = useQuery(GET_COLOR);
+//   console.log("Response from server", data);
+// }
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+// export function GetWeights() {
+//   const { error, loading, data } = useQuery(GET_WEIGHT);
 
-  console.log("Response from server", data);
-}
+//   if (loading) return "Loading...";
+//   if (error) return `Error! ${error.message}`;
 
-export function GetWeights() {
-  const { error, loading, data } = useQuery(GET_WEIGHT);
+//   console.log("Response from server", data);
+// }
 
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+// export function GetHeights() {
+//   const { error, loading, data } = useQuery(GET_HEIGHT);
 
-  console.log("Response from server", data);
-}
+//   if (loading) return "Loading...";
+//   if (error) return `Error! ${error.message}`;
 
-export function GetHeights() {
-  const { error, loading, data } = useQuery(GET_HEIGHT);
-
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
-
-  console.log("Response from server", data);
-}
+//   console.log("Response from server", data);
+// }

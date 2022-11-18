@@ -1,6 +1,6 @@
 import { ApolloClient, ApolloProvider, from, HttpLink, InMemoryCache } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import { GetAllPokemon, GetColors, GetHeights, GetTypes, GetWeights} from "../Components/PokemonInfo";
+import { GetAllPokemon} from "../Components/GetAllPokemon";
 import PokemonTest from "../pages/Pokemon";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -24,12 +24,11 @@ const client = new ApolloClient({
   link: link
 })
 
-export default function Test() {
+export default function OutPutPokemon() {
   return (
     <ApolloProvider client={client}>
       <GetAllPokemon />
       <PokemonTest />
-
     </ApolloProvider>
   );
 }
