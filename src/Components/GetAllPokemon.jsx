@@ -12,16 +12,30 @@ import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
 import '../css/TableRow.css'
 
-export function GetAllPokemon(searchInput) {
+export function GetAllPokemon({searchInput}) {
   const { error, loading, data } = useQuery(GET_POKEMONS);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
   console.log("Response from server", data);
+  
+  
+  const testOutput = (pokeName) => {
+
+
+    if(pokeName && pokeName.includes(searchInput)) {
+      return "active"
+    } else if (searchInput === null || searchInput === undefined || searchInput === "") {
+      return "active"
+    } else {
+      return "inactive"
+    }
+  }
 
   return (
     <>
+    <h1>{searchInput}</h1>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -33,7 +47,7 @@ export function GetAllPokemon(searchInput) {
           </TableHead>
           <TableBody>
             {data.getAllPokemon.map((pokemon) => (
-              <TableRow key={pokemon.key} className={searchInput === pokemon.species ? "active" : "inactive"}>
+              <TableRow key={pokemon.key} className={testOutput(pokemon.species)}>
                 <TableCell>{pokemon.num}</TableCell>
                 <TableCell>
                   <img src={pokemon.sprite} alt={pokemon.species} />

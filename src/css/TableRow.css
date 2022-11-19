@@ -1,6 +1,6 @@
 
 
-.not-active {
+.inactive {
     display: none !important;
     background-color: black;
 }

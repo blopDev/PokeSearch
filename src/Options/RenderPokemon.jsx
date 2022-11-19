@@ -24,10 +24,10 @@ const client = new ApolloClient({
   link: link
 })
 
-export default function RenderPokemon() {
+export default function RenderPokemon({searchInput}) {
   return (
     <ApolloProvider client={client}>
-      <GetAllPokemon />
+      <GetAllPokemon searchInput={searchInput} />
       <PokemonTest />
     </ApolloProvider>
   );
