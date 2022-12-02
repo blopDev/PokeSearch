@@ -20,6 +20,28 @@ query GetPokemon($pokemon: PokemonEnum!, $getPokemonTakeFlavorTexts2: Int ) {
     flavorTexts {
       flavor
     }
+    abilities {
+      first {
+        name
+        shortDesc
+      }
+      hidden {
+        name
+        shortDesc
+      }
+      second {
+        name
+        shortDesc
+      }
+      special {
+        shortDesc
+        name
+      }
+    }
+    sprite
+    types {
+      name
+    }
   }
 }
 `;
